@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="shortcut icon" href="images/meteorology.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="javascript/main.js" defer></script>
+</head>
+
+<body>
+    <!--SEARCH BOX-->
+    <div class="container">
+        <h1>Weather App</h1>
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Enter a city name">
+            <button id="search-btn">Search</button>
+        </div>
+        <p id="error-message" class="hidden">City not found. Please try again.</p>
+    </div>
+
+    <!--WEATHER INFORMATION-->
+    <div id="widget-container" class="hidden">
+        <div id="widget">
+            <div id="weather-info">
+                <p id="city-name"></p>
+                <p id="weather-description"></p>
+            </div>
+
+            <div id="weather-icon">
+                <img id="icon" alt="Weather Icon">
+            </div>
+
+            <div id="weather-temperature">
+                <p id="temperature"></p>
+            </div>
+            <div id="weather-details">
+                <p>Details</p>
+                <hr>
+                <div class="left-col">
+                    <p>Weather</p>
+                    <p>Wind</p>
+                    <p>Humidity</p>
+                    <p>Pressure</p>
+                    <p>Feels like</p>
+                </div>
+
+                <div class="right-col">
+                    <p id="main"></p>
+                    <p id="wind"></p>
+                    <p id="humidity"></p>
+                    <p id="pressure"></p>
+                    <p id="feels-like"></p>
+                </div>
+
+            </div>
+            <div id="footer">
+                <div>
+                    <img src="images/meteorology.png" alt="App icon">
+                    <p>Weather App</p>
+                </div>
+
+                <div>
+                    <p id="current-time"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

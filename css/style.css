@@ -1,0 +1,181 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/*SEARCH BOX*/
+.container {
+    width: 400px;
+    margin: auto;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+/*WEATHER WIDGET*/
+#widget {
+    display: grid;
+    grid-template-areas:
+        "weather-info icon"
+        "temperature details"
+        "footer footer";
+    grid-template-columns: 5fr 4fr;
+    gap: 0;
+    width: 421px;
+    margin: 15px auto;
+    border-radius: 8px;
+    /*Prevents the grid items content from spilling outside 
+    the weather-widget's boundaries. Without this birder-radius doesn't work*/
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/*Weather-info*/
+#weather-info {
+    grid-area: weather-info;
+    padding-left: 20px;
+    background-color: #93e2e2;
+    color: #ffffff;
+    align-content: center;
+    text-align: left;
+}
+
+#city-name {
+    margin: 5px 0;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+#weather-description {
+    margin: 0;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+}
+
+/*Weather-icon*/
+#weather-icon {
+    grid-area: icon;
+    background-color: #93e2e2;
+}
+
+#icon {
+    width: 100px;
+    height: 100px;
+}
+
+/*Weather-temperature*/
+#weather-temperature {
+    grid-area: temperature;
+    align-content: center;
+    background-color: #f1f822;
+}
+
+#temperature {
+    margin: 0;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #333333;
+}
+
+/*Weather-details*/
+#weather-details {
+    grid-area: details;
+    align-content: center;
+    background-color: #f1f822;
+    text-align: left;
+}
+
+#weather-details p {
+    margin: 5px 0;
+    font-size: 0.8rem;
+}
+
+#weather-details > p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+hr {
+    height: 3px;
+    margin: 0;
+    border: none;
+    background-color: #93e2e2;
+}
+
+.left-col,
+.right-col {
+    width: 45%;
+    margin: 0;
+}
+
+.right-col {
+    float: right;
+    font-weight: 600;
+}
+
+.left-col {
+    float: left;
+}
+
+/*Footer*/
+#footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px 0 20px;
+    background-color: #93e2e2;
+    color: #ffffff;
+}
+
+#footer div:nth-child(1) {
+    width: 40%;
+}
+
+#footer div:nth-child(1) p {
+    margin-left: 0;
+}
+
+#footer img {
+    width: 25px;
+    height: 25px;
+    margin-top: 12px;
+    margin-right: -15px;
+    float: left;
+    align-self: baseline;
+}
+
+#current-time {
+    margin-right: 6px;
+    /*Allows to keep space between time and date*/
+    white-space: pre;
+}
