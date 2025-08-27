@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
-    /*Updates the UI with received weather data.*/
+    // Updates the UI with received weather data.
     function displayWeather(data) {
         document.getElementById("city-name").textContent = `${data.name}, ${data.sys.country}`;
         document.getElementById("weather-description").textContent = data.weather[0].description;
@@ -55,13 +55,26 @@ document.addEventListener("DOMContentLoaded", () => {
             data.main.feels_like
         ).toFixed(1)}°F`;
 
-        let date = new Date();
-        let day = date.toLocaleString("en", { month: "short", day: "2-digit" });
-        let time = date.toLocaleString("en", { hour: "2-digit", minute: "2-digit" });
-
-        document.getElementById("current-time").innerHTML = time + "   " + day;
+        document.getElementById("current-time").textContent = displayLocalTimeAndDate(
+            data.timezone
+        );
 
         widgetContainer.classList.remove("hidden");
         errorMessage.classList.add("hidden");
+    }
+
+    function displayLocalTimeAndDate(timezoneOffset) {
+        // Convert timezoneOffset (seconds) in milliseconds
+        const offsetMs = timezoneOffset * 1000;
+        // Convert to local time using offset
+        const localTime = new Date(new Date().getTime() + offsetMs);
+        // Convert Date string to an array
+        const localTimeArray = localTime.toGMTString().slice(5).split(" ");
+        // Extracts parts of a the array to make a string that consist local time and date
+        const localTimeAndDate = `${localTimeArray[3].slice(0, 5)}   ${
+            localTimeArray[1] + " " + localTimeArray[0]
+        }`;
+
+        return localTimeAndDate;
     }
 });
